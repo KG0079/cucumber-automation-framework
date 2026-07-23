@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Check Environment') {
+            steps {
+                sh '''
+                    export PATH="/opt/homebrew/bin:$PATH"
+                    java --version
+                    mvn --version
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                    export PATH="/opt/homebrew/bin:$PATH"
+                    mvn clean test
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Test execution completed'
+        }
+    }
+}
