@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -13,7 +14,7 @@ pipeline {
                 sh '''
                     export PATH="/opt/homebrew/bin:$PATH"
                     java --version
-            mvn clean test -Dtestsuitefile=testNG.xml
+                    mvn --version
                 '''
             }
         }
@@ -22,7 +23,7 @@ pipeline {
             steps {
                 sh '''
                     export PATH="/opt/homebrew/bin:$PATH"
-                    mvn clean test
+                    mvn clean test -Dtestsuitefile=testNG.xml
                 '''
             }
         }
