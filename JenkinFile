@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                     export PATH="/opt/homebrew/bin:$PATH"
                     java --version
-                    mvn --version
+            mvn clean test -Dtestsuitefile=testNG.xml
                 '''
             }
         }
