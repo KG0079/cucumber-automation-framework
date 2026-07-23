@@ -20,14 +20,10 @@
 				<version>3.5.3</version>
 
 				<configuration>
-
 					<suiteXmlFiles>
-						<suiteXmlFile>XMLFiles/${testsuitefile}</suiteXmlFile>
+						<suiteXmlFile>${testsuitefile}</suiteXmlFile>
 					</suiteXmlFiles>
-
 				</configuration>
-
-
 			</plugin>
 
 		</plugins>
@@ -44,7 +40,7 @@
 			<version>7.34.4</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
